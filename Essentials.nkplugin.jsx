@@ -19,7 +19,7 @@ Build and copy to Nekocord plugins directory (macOS only, am lazy):
 npm run build -- -c
 
 Line count command:
-find . -type f -not -path "./node_modules/*" -exec cat {} + | wc -l
+find . -type f \( -name "*.js" -o -name "*.jsx" -o -name "*.css" \) -not -path "./node_modules/*" -not -path "./build/*" -exec cat {} + | wc -l
 
 */
 

@@ -2744,7 +2744,7 @@ var Essentials = class {
         }
       ],
       description: "Minor tweaks that make discord better!",
-      version: "2.3.1",
+      version: "2.4.0",
       patches: [],
       preferences: []
     });
