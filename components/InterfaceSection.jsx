@@ -83,6 +83,18 @@ function InterfaceSection({ settings, filterSettings, handleToggle, handlePrevie
             />
           )}
           {filterSettings(
+            "Recolor Add Friends Tab",
+            "This Snippet fixes the \"Add Friend\" so it match's the other tabs",
+          ) && (
+            <SettingsToggle
+              label="Recolor Add Friends Tab"
+              description="This Snippet fixes the 'Add Friend' so it match's the other tabs"
+              value={settings.RecolorAddFriendsTab}
+              onChange={() => handleToggle("RecolorAddFriendsTab")}
+              helpText="This changes the 'Add Friend' so it match's the other tabs"
+            />
+          )}
+          {filterSettings(
             "Better Pickers",
             "Changes purple to grey in the soundboard and emoji picker",
           ) && (

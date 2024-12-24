@@ -15,7 +15,7 @@ Many tiny (or big) Discord tweaks, compiled into one giant plugin
 And many more!
 
 ## Installation
-1. Install [Nekocord](https://github.com/Nekocord) client
+1. Install [Nekocord](https://github.com/nekocord-mod/nekocord) 
 2. Download the latest release of Essentials
 3. Place the plugin in your Nekocord plugins directory
 
@@ -26,7 +26,7 @@ just run `npm run build` :3
 Feel free to suggest new tweaks or improvements by opening an issue or pull request!
 
 ## Credits
-Created by @m0chacat, and css made by the people of da vencord #css-snippits channel :3 
+Created by @m0chacat, and css made by the people of da vencord #css-snippets channel :3 
 
 ## License
 idfk just dont sell it for money or anything, also if you fix a bug then pwease make a pull request :3 

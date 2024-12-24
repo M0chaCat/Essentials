@@ -57,6 +57,18 @@ function FunSection({ settings, filterSettings, handleToggle, handlePreviewClick
           />
         )}
         {filterSettings(
+          "Trans Boost",
+          "Changes the server boost gradient to the best flag ever.",
+        ) && (
+          <SettingsToggle
+            label="Trans Boost"
+            description="Changes the server boost gradient to the best flag ever."
+            value={settings.TransBoost}
+            onChange={() => handleToggle("TransBoost")}
+            onPreviewClick={handlePreviewClick}
+          />
+        )}
+        {filterSettings(
           "Clippy Status",
           "Turns status in new profiles into Clippy-style speech bubble (incompatible with Profile Status Matching/Revert Profiles)",
         ) && (

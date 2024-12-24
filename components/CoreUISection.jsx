@@ -48,6 +48,30 @@ function CoreUISection({ settings, filterSettings, handleToggle, handlePreviewCl
             />
           )}
           {filterSettings(
+            "Chat Header Server List",
+            "makes the chat header into the server list with horizontal server list",
+          ) && (
+            <SettingsToggle
+              label="Chat Header Server List"
+              description="makes the chat header into the server list with horizontal server list"
+              value={settings.ChatHeaderServerList}
+              onChange={() => handleToggle("ChatHeaderServerList")}
+              helpText="removes the chat header and makes it into the server list with horizontal server list, while additionally removing the help and discover button because they are useless"
+            />
+          )}
+          {filterSettings(
+            "Horizontal Server List",
+            "Makes the server list horizontal at the top",
+          ) && (
+            <SettingsToggle
+              label="Horizontal Server List"
+              description="Makes the server list horizontal at the top"
+              value={settings.HorizontalServerList}
+              onChange={() => handleToggle("HorizontalServerList")}
+              helpText="This makes the server list horizontal and at the top"
+            />
+          )}
+          {filterSettings(
             "Collapsible Message Actions (Shift)",
             "Hides message actions until message is hovered or shift is held",
           ) && (

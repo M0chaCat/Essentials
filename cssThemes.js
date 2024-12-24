@@ -30,6 +30,114 @@ module.exports = {
         z-index: 0!important;
       }
     `,
+    ChatHeaderServerList: `
+      @import url("https://discordstyles.github.io/HorizontalServerList/dist/HorizontalServerList.css");
+      @import url(https://raw.githubusercontent.com/SEELE1306/CSS-Snippets/refs/heads/main/Snippets/ToolbarHide/import.css);
+      :root {
+        --tb-width: 370px;
+        --HSL-server-icon-size: 40px;  /* Size of the server icons | DEFAULT: 40px */
+        --HSL-server-spacing: 10px;  /* Spacing between each server icon | DEFAULT: 10px */
+        --HSL-server-direction: column; /* Direct of the server list. | Options: column, column-reverse | DEFAULT: column */
+      }
+      [class^="title_"] {
+        max-height: 0px !important;
+        min-height: 0px !important;
+        padding: 0px;
+        border: 0px;
+
+        div:not([class^="topic_"]) {
+          overflow: visible !important;
+        }
+
+        [class^="children_"]::after {
+          display: none;
+        }
+      }
+
+      [class^="titleWrapper_"],
+      [class^="title_"] [class^="divider_"],
+      [class^="title_"] [class^="children_"] > [class^="iconWrapper_"] {
+        display: none;
+      }
+      [class^="topic_"] {
+      display: none!important;
+      }
+
+      html:has([class^="toolbar_"]:hover) [class^="topic_"], [class^="topic_"]:hover {
+        position: absolute;
+        top: 0px;
+        left: calc(100vw - var(--tb-width) - var(--tb-width) / 1.5 - 10px);
+        width: calc(var(--tb-width) + 10px);
+        overflow: hidden !important;
+        background-color: var(--background-tertiary);
+        padding: 5px;
+        display: block!important;
+        border-bottom-left-radius: 8px;
+      }
+
+      [class^="toolbar_"] {
+        position: absolute;
+        top: calc(var(--HSL-server-icon-size) / -1 - 4px);
+        left: calc(100% - 12px);
+        height: 32px;
+        width: 0px;
+        &::before {
+          position: absolute;
+          top: -1px;
+        }
+
+        &:hover::before {
+          padding: calc(var(--HSL-server-icon-size) / 2.5);
+          padding-left: var(--tb-width) !important;
+        }
+
+      }
+
+      [class^="footer_"] {
+        height: calc(var(--HSL-server-icon-size) * 2.5 );
+        transition: height 150ms ease 0s;
+      }
+
+      html:has([class^="toolbar_"]:hover) [class^="footer_"] {
+        max-height: var(--tb-width) !important;
+        min-height: var(--tb-width) !important;
+      }
+
+      [class^="footer_"] [class^="listItem_"] {
+        display: none;
+      }
+
+      [class^="unreadMentionsIndicatorBottom_"] {
+        transition: padding-bottom 150ms ease 0s;
+      }
+
+      html:has([class^="toolbar_"]:hover) [class^="unreadMentionsIndicatorBottom_"] {
+        padding-bottom: calc(var(--tb-width) - 50px) !important;
+      }
+
+      [class^="children_"]:has(div>[class^="avatar_"]) {
+        display: none;
+      }
+
+      [class*="base"], [class^="chat_"] {
+          overflow: visible!important;
+      }
+      [href="https://support.discord.com"] {
+        display: none;
+      }
+    `,
+    HorizontalServerList: `
+      @import url("https://discordstyles.github.io/HorizontalServerList/dist/HorizontalServerList.css");
+    `,
+    TransBoost: `
+      body {
+       --guild-boosting-blue: #60d0fa, #f5acba, #ffffff;
+       --guild-boosting-purple: #ffffff, #f5acba, #60d0fa;
+      }
+    `,
+    BetterFriends: `
+      @import url("https://raw.githubusercontent.com/KrstlSkll69/vc-snippets/main/OtherStuff/RecolorAddFriendsTab.css");
+    `,
     CollapsibleMessageActions: `
       [class^=buttonsInner_]:not(:hover)>:is(
         [role=button]:not(:last-child), [class^=separator_]

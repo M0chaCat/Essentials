@@ -27,7 +27,8 @@ function M0chaTweaksTab() {
         "CollapsibleMessageActions", "CollapsibleMessageActionsAlt", "BetterMessageButtons",
         "BetterMessageButtonsAlt", "MoveForwardButton", "RemoveForwardButton",
         "AccountSettingsRefresh", "RemoveSettingsAds", "EfficientSettings",
-        "DisableSuperReactionAd", "HidePinDiscovery", "DualLineChatbox"
+        "DisableSuperReactionAd", "HidePinDiscovery", "DualLineChatbox", 
+        "ChatHeaderServerList", "HorizontalServerList"
       ].includes(key)
     ).length;
 
@@ -39,7 +40,7 @@ function M0chaTweaksTab() {
         "MinimalSearchbar", "MessageBarGreyEmoji", "MinimalAuthorisedApps", "SlideoverServers",
         "UsernameSymbol", "CollapsibleChatButtons", "FixMosaicZoom", "RevertGifFavorite",
         "RightServerList", "RightChannelList", "LeftMemberList", "AccountDetailsGrid",
-        "ChannelServers"
+        "ChannelServers", "RecolorAddFriendsTab"
       ].includes(key)
     ).length;
 
@@ -60,7 +61,7 @@ function M0chaTweaksTab() {
 
     const fun = Object.entries(settings).filter(([key, value]) => 
       value && [
-        "DiscordHardcore", "GayFolders", "GradientDMs", "BouncyWebm", "ClippyStatus"
+        "DiscordHardcore", "GayFolders", "GradientDMs", "BouncyWebm", "TransBoost", "ClippyStatus"
       ].includes(key)
     ).length;
 
