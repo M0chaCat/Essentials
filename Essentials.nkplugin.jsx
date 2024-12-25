@@ -62,7 +62,7 @@ class Essentials {
       },
     ],
     description: "Minor tweaks that make discord better!",
-    version: "2.4.0",
+    version: "2.5.1",
     patches: [],
     preferences: [],
   };
