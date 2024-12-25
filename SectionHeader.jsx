@@ -30,4 +30,4 @@ function SectionHeader({ title }) {
   );
 }
 
-module.exports = SectionHeader; 
+module.exports = SectionHeader;

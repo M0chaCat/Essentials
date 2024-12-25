@@ -8,6 +8,7 @@ const ChatSection = require('./ChatSection');
 const VisualSection = require('./VisualSection');
 const FunSection = require('./FunSection');
 const OnekoSection = require('./OnekoSection');
+const tweaks = require('../tweaks');
 
 function M0chaTweaksTab() {
   const [settings, setSettings] = React.useState({});
@@ -21,57 +22,22 @@ function M0chaTweaksTab() {
 
   // Calculate enabled counts
   const enabledCounts = React.useMemo(() => {
-    const coreUI = Object.entries(settings).filter(([key, value]) => 
-      value && [
-        "ForumImprovements", "AppearanceTabImprovements", "HideNoPermissionChat",
-        "CollapsibleMessageActions", "CollapsibleMessageActionsAlt", "BetterMessageButtons",
-        "BetterMessageButtonsAlt", "MoveForwardButton", "RemoveForwardButton",
-        "AccountSettingsRefresh", "RemoveSettingsAds", "EfficientSettings",
-        "DisableSuperReactionAd", "HidePinDiscovery", "DualLineChatbox", 
-        "ChatHeaderServerList", "HorizontalServerList"
-      ].includes(key)
-    ).length;
-
-    const interface_ = Object.entries(settings).filter(([key, value]) => 
-      value && [
-        "HidePlayAgain", "FullServerTooltips", "CenteredChannelNames", "BetterPickers",
-        "HideActivity", "VisibleServerBanner", "ColoredMessagePills", "ModernAudio",
-        "RevealDarkUsernames", "RepositionAppLauncher", "RemoveAppLauncher", "LeftFavButton",
-        "MinimalSearchbar", "MessageBarGreyEmoji", "MinimalAuthorisedApps", "SlideoverServers",
-        "UsernameSymbol", "CollapsibleChatButtons", "FixMosaicZoom", "RevertGifFavorite",
-        "RightServerList", "RightChannelList", "LeftMemberList", "AccountDetailsGrid",
-        "ChannelServers", "RecolorAddFriendsTab"
-      ].includes(key)
-    ).length;
-
-    const chat = Object.entries(settings).filter(([key, value]) => 
-      value && [
-        "CustomChatPlaceholder", "CustomChatPlaceholderAlt", "HideTimestamps",
-        "ScrollingText", "BiggerSummaries", "IRCTheme", "ChannelTweaks"
-      ].includes(key)
-    ).length;
-
-    const visual = Object.entries(settings).filter(([key, value]) => 
-      value && [
-        "PastelStatuses", "LargeEmojis", "ReactionAnimations", "CustomNewMemberBadge",
-        "ProfileThemeMatching", "RevertProfiles", "CoolCodeBlocks", "UnsimplifyBios",
-        "ChannelHover", "ButtonHover", "Discolored"
-      ].includes(key)
-    ).length;
-
-    const fun = Object.entries(settings).filter(([key, value]) => 
-      value && [
-        "DiscordHardcore", "GayFolders", "GradientDMs", "BouncyWebm", "TransBoost", "ClippyStatus"
-      ].includes(key)
-    ).length;
+    const countBySection = (section) => 
+      tweaks.filter(tweak => 
+        tweak.section === section && settings[tweak.id]
+      ).length;
 
     return {
-      coreUI,
-      interface: interface_,
-      chat,
-      visual,
-      fun,
-      total: coreUI + interface_ + chat + visual + fun
+      coreUI: countBySection('coreUI'),
+      interface: countBySection('interface'),
+      chat: countBySection('chat'),
+      visual: countBySection('visual'),
+      fun: countBySection('fun'),
+      oneko: countBySection('oneko'),
+      get total() {
+        return this.coreUI + this.interface + this.chat + 
+               this.visual + this.fun + this.oneko;
+      }
     };
   }, [settings]);
 

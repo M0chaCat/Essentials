@@ -155,4 +155,4 @@ function SettingsToggle({
   );
 }
 
-module.exports = SettingsToggle; 
+module.exports = SettingsToggle;

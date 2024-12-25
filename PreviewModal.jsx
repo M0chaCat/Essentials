@@ -134,4 +134,4 @@ function PreviewModal({ previewBefore, previewAfter, onClose }) {
   );
 }
 
-module.exports = PreviewModal; 
+module.exports = PreviewModal;

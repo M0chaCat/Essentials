@@ -4,12 +4,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-const { cssThemes } = require('./cssThemes');
-const QuickCSSTab = require('./QuickCSSTab');
-const M0chaTweaksTab = require('./components/M0chaTweaksTab');
-const { ThemeImportTab, applyThemeUrls } = require('./ThemeImportTab');
-
-
+const QuickCSSTab = require("./QuickCSSTab");
+const M0chaTweaksTab = require("./components/M0chaTweaksTab");
+const { ThemeImportTab, applyThemeUrls } = require("./ThemeImportTab");
+const tweaks = require("./tweaks");
 
 /*
 
@@ -24,13 +22,10 @@ find . -type f \( -name "*.js" -o -name "*.jsx" -o -name "*.css" \) -not -path "
 
 */
 
-
-
 class Essentials {
   constructor(userPreferences) {
     this.userPreferences = userPreferences;
-    this.cssThemes = cssThemes;
-    
+
     // Apply theme imports on startup
     const savedThemeUrls = NekocordNative.preferences.getForPlugin(
       "cat.kitties.arcane.Essentials",
@@ -75,8 +70,6 @@ class Essentials {
     this.userPreferences = userPreferences;
     this.tryToEnableTweaks();
   }
-
-
 
   tryToEnableTweaks() {
     // Get the saved settings from preferences
@@ -129,13 +122,13 @@ class Essentials {
 
     // Check each setting and apply CSS only for enabled settings
     if (savedPrefs) {
-      Object.entries(savedPrefs).forEach(([key, value]) => {
-        if (value === true && this.cssThemes[key]) {
+      tweaks.forEach((tweak) => {
+        if (savedPrefs[tweak.id]) {
           if (document.readyState === "complete") {
-            this.applyCss(this.cssThemes[key], `essentials-${key}`);
+            this.applyCss(tweak.css, `essentials-${tweak.id}`);
           } else {
             window.addEventListener("load", () =>
-              this.applyCss(this.cssThemes[key], `essentials-${key}`),
+              this.applyCss(tweak.css, `essentials-${tweak.id}`),
             );
           }
         }
@@ -186,5 +179,26 @@ class Essentials {
       element: ThemeImportTab,
     },
   };
+
+  start() {
+    // Listen for settings changes
+    window.addEventListener("essentials-settings-changed", () => {
+      const settings = NekocordNative.preferences.getForPlugin(
+        "cat.kitties.arcane.Essentials",
+        "settings",
+      );
+
+      // Apply CSS for enabled tweaks
+      tweaks.forEach((tweak) => {
+        if (settings[tweak.id]) {
+          this.applyCss(tweak.css, `essentials-${tweak.id}`);
+        } else {
+          // Remove CSS if tweak is disabled
+          const element = document.getElementById(`essentials-${tweak.id}`);
+          if (element) element.remove();
+        }
+      });
+    });
+  }
 }
 exports.default = Essentials;

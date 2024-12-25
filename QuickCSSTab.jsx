@@ -66,27 +66,33 @@ function QuickCSSTab() {
       <SectionHeader title="QuickCSS" />
 
       <div className="header-container" style={{ marginBottom: "24px" }}>
-        <div className="defaultColor_a595eb text-md/normal_dc00ef" 
-             style={{ opacity: 0.8, lineHeight: "1.5" }}>
+        <div
+          className="defaultColor_a595eb text-md/normal_dc00ef"
+          style={{ opacity: 0.8, lineHeight: "1.5" }}
+        >
           <p>Add custom CSS snippets here. Changes apply instantly.</p>
-          <p style={{ 
-            color: "var(--brand-experiment)", 
-            fontSize: "13px",
-            marginTop: "4px",
-            fontStyle: "italic"
-          }}>
-            {''}
+          <p
+            style={{
+              color: "var(--brand-experiment)",
+              fontSize: "13px",
+              marginTop: "4px",
+              fontStyle: "italic",
+            }}
+          >
+            {""}
           </p>
         </div>
       </div>
 
-      <div className="button-container" 
-           style={{ 
-             display: "flex", 
-             gap: "8px", 
-             marginBottom: "16px",
-             justifyContent: "flex-end" 
-           }}>
+      <div
+        className="button-container"
+        style={{
+          display: "flex",
+          gap: "8px",
+          marginBottom: "16px",
+          justifyContent: "flex-end",
+        }}
+      >
         <button
           onClick={handleClear}
           className="button-f14gos"
@@ -107,17 +113,38 @@ function QuickCSSTab() {
 
       <div className="codeContainer_f8f345">
         <div className="codeActions_f8f345">
-          <div 
-            className="copyButton" 
-            role="button" 
-            tabIndex="0" 
+          <div
+            className="copyButton"
+            role="button"
+            tabIndex="0"
             onClick={handleCopy}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8-8h5a1 1 0 0 1 1 1v.5a.5.5 0 0 1-.5.5H10a6 6 0 0 0-6 6v5.5a.5.5 0 0 1-.5.5H3Z"></path>
-              <path fill="currentColor" d="M6 18a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-4h-3a5 5 0 0 1-5-5V6h-4a4 4 0 0 0-4 4v8Z"></path>
-              <path fill="currentColor" d="M21.73 12a3 3 0 0 0-.6-.88l-4.25-4.24a3 3 0 0 0-.88-.61V9a3 3 0 0 0 3 3h2.73Z"></path>
+            <svg
+              aria-hidden="true"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8-8h5a1 1 0 0 1 1 1v.5a.5.5 0 0 1-.5.5H10a6 6 0 0 0-6 6v5.5a.5.5 0 0 1-.5.5H3Z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M6 18a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-4h-3a5 5 0 0 1-5-5V6h-4a4 4 0 0 0-4 4v8Z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M21.73 12a3 3 0 0 0-.6-.88l-4.25-4.24a3 3 0 0 0-.88-.61V9a3 3 0 0 0 3 3h2.73Z"
+              ></path>
             </svg>
           </div>
         </div>
@@ -137,7 +164,7 @@ function QuickCSSTab() {
             outline: "none",
             fontSize: "14px",
             lineHeight: "1.5",
-            caretColor: "var(--brand-experiment)"
+            caretColor: "var(--brand-experiment)",
           }}
           spellCheck="false"
           placeholder={`/* Add your custom CSS here */
@@ -263,4 +290,4 @@ function QuickCSSTab() {
   );
 }
 
-module.exports = QuickCSSTab; 
+module.exports = QuickCSSTab;

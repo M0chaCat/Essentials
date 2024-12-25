@@ -4,10 +4,15 @@ const SectionHeader = require("./SectionHeader");
 const applyThemeUrls = (urlsText) => {
   if (!document.head) return;
 
-  const existingStyles = document.querySelectorAll('[id^="essentials-themeimport-"]');
-  existingStyles.forEach(style => style.remove());
+  const existingStyles = document.querySelectorAll(
+    '[id^="essentials-themeimport-"]',
+  );
+  existingStyles.forEach((style) => style.remove());
 
-  const urlList = urlsText.split(/[\n,]+/).map(url => url.trim()).filter(url => url);
+  const urlList = urlsText
+    .split(/[\n,]+/)
+    .map((url) => url.trim())
+    .filter((url) => url);
 
   urlList.forEach((url, index) => {
     const styleElement = document.createElement("style");
@@ -59,26 +64,34 @@ function ThemeImportTab() {
       <SectionHeader title="Theme Import" />
 
       <div className="header-container" style={{ marginBottom: "24px" }}>
-        <div className="defaultColor_a595eb text-md/normal_dc00ef" 
-             style={{ opacity: 0.8, lineHeight: "1.5" }}>
-          <p>Import themes by URL. Add each theme URL on a new line or separate with commas.</p>
-          <p style={{ 
-            color: "var(--brand-experiment)", 
-            fontSize: "13px",
-            marginTop: "4px",
-            fontStyle: "italic"
-          }}>
+        <div
+          className="defaultColor_a595eb text-md/normal_dc00ef"
+          style={{ opacity: 0.8, lineHeight: "1.5" }}
+        >
+          <p>
+            Import themes by URL. Add each theme URL on a new line or separate
+            with commas.
           </p>
+          <p
+            style={{
+              color: "var(--brand-experiment)",
+              fontSize: "13px",
+              marginTop: "4px",
+              fontStyle: "italic",
+            }}
+          ></p>
         </div>
       </div>
 
-      <div className="button-container" 
-           style={{ 
-             display: "flex", 
-             gap: "8px", 
-             marginBottom: "16px",
-             justifyContent: "flex-end" 
-           }}>
+      <div
+        className="button-container"
+        style={{
+          display: "flex",
+          gap: "8px",
+          marginBottom: "16px",
+          justifyContent: "flex-end",
+        }}
+      >
         <button
           onClick={handleClear}
           className="button-f14gos"
@@ -91,23 +104,26 @@ function ThemeImportTab() {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.2s, transform 0.2s",
-            ':hover': {
+            ":hover": {
               transform: "translateY(-1px)",
-              filter: "brightness(1.1)"
-            }
+              filter: "brightness(1.1)",
+            },
           }}
         >
           Clear All
         </button>
       </div>
 
-      <div className="textarea-container" style={{ 
-        backgroundColor: "var(--background-secondary)", 
-        borderRadius: "8px",
-        padding: "2px",
-        border: "1px solid var(--background-tertiary)",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
-      }}>
+      <div
+        className="textarea-container"
+        style={{
+          backgroundColor: "var(--background-secondary)",
+          borderRadius: "8px",
+          padding: "2px",
+          border: "1px solid var(--background-tertiary)",
+          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <textarea
           value={urls}
           onChange={handleUrlsChange}
@@ -130,24 +146,24 @@ function ThemeImportTab() {
             whiteSpace: "pre",
             overflowX: "scroll",
             overflowY: "auto",
-            '&::after': {
+            "&::after": {
               content: '""',
-              display: 'inline-block',
-              width: '32px',
-              height: '1px'
+              display: "inline-block",
+              width: "32px",
+              height: "1px",
             },
-            '&::-webkit-input-placeholder': {
-              fontSize: '13px'
+            "&::-webkit-input-placeholder": {
+              fontSize: "13px",
             },
-            '&::-moz-placeholder': {
-              fontSize: '13px'
+            "&::-moz-placeholder": {
+              fontSize: "13px",
             },
-            '&:-ms-input-placeholder': {
-              fontSize: '13px'
+            "&:-ms-input-placeholder": {
+              fontSize: "13px",
             },
-            '&::placeholder': {
-              fontSize: '13px'
-            }
+            "&::placeholder": {
+              fontSize: "13px",
+            },
           }}
           spellCheck="false"
           placeholder="Enter theme URLs here...
@@ -164,4 +180,4 @@ https://example.com/theme1.css, https://example.com/theme2.css"
   );
 }
 
-module.exports = { ThemeImportTab, applyThemeUrls }; 
+module.exports = { ThemeImportTab, applyThemeUrls };

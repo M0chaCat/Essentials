@@ -45,4 +45,4 @@ function SearchBar({ onSearch }) {
   );
 }
 
-module.exports = SearchBar; 
+module.exports = SearchBar;
