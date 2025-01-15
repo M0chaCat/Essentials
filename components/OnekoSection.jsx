@@ -8,7 +8,7 @@ function OnekoSection({ settings, filterSettings, handleToggle, handlePreviewCli
 
   return (
     <div className="settings-section mb-16">
-      <SectionHeader title="Oneko Skins" />
+      <SectionHeader title="" />
       <div className={`${settings.GridView ? "settings-grid" : ""} mt-8`}>
         {onekoTweaks.map(tweak => (
           filterSettings(tweak.label, tweak.description) && (

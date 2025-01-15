@@ -6,82 +6,7 @@ module.exports = [
     label: 'Account Settings Refresh',
     description: 'A fresh take on the Account Settings area',
     section: 'interface',
-    css: `.field_b69b77 {
-        display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 11px 8px;
-    padding-left: 11px;
-    gap: 5px;
-    box-sizing: border-box;
-    min-height: 56px;
-    align-items: center;
-    border-radius: 4px;
-    transition: none;
-    background-color: var(--background-secondary);
-    color: var(--header-primary);
-    margin: 0;
-}
-.field_b69b77:hover {
-    background-color: var(--background-modifier-hover);
-}
-.visual-refresh .field_b69b77 {
-    background: var(--bg-mod-faint);
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,10%) !important;
-    transition: background-color 0.1s ease-in-out,
-        border-color 0.1s ease-in-out;
-}
-.visual-refresh .field_b69b77:hover {
-    background-color: var(--bg-mod-subtle);
-}
-.fieldList_b69b77 {
-        position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: max-content;
-    gap: 8px;
-    width: 100%;
-    scrollbar-width: none !important;
-    box-sizing: border-box;
-    overflow: hidden auto;
-    background-color: transparent;
-    border-radius: 0;
-}
-.fieldTitle_b69b77 {
-    margin-bottom: 0;
-}
-.background_b69b77 {
-    background-color: transparent;
-    margin: 0;
-}
-.accountProfileCard_b69b77 {
-    box-shadow: var(--legacy-elevation-border), var(--legacy-elevation-high);
-    background-color: var(--modal-background);
-    border-radius: 4px;
-}
-.visual-refresh .accountProfileCard_b69b77 {
-    border-radius: var(--radius-md);
-    background-color: var(--bg-base-primary);
-    border: 1px solid var(--border-subtle);
-}
-.fieldButton_b69b77 {
-    color: var(--white-500) !important;
-    background-color: var(--button-secondary-background);
-    transition: background-color var(--custom-button-transition-duration)ease,color var(--custom-button-transition-duration)ease;
-}
-.fieldButton_b69b77:hover {
-    color: var(--white-500) !important;
-    background-color: var(--button-secondary-background-hover);
-}
-.fieldButton_b69b77 > .contents_dd4f85 {
-    background-image: none;
-}
-:where(.visual-refresh) .fieldButton_b69b77 {
-    border: 1px solid rgba(255,255,255,.1);
-    transition-duration: .3s;
-}
-`,
+    css: `@import url("https://dablulite.github.io/css-snippets/AccountSettingsRefresh/import.css");`,
     helpText: "This provides a fresh look at the Account Settings area, with a new layout",
     previewBefore: "https://arcane.kitties.cat/assets/essentials/accountsettingsrefresh-before.png",
     previewAfter: "https://arcane.kitties.cat/assets/essentials/accountsettingsrefresh-after.png"
@@ -111,66 +36,8 @@ module.exports = [
     label: 'Gradient DMs',
     description: 'Adds gradient backgrounds to DM list and member list based on status',
     section: 'interface',
-    css: `:root {
-    --gDM-online: linear-gradient(to right, rgb(68, 105, 68) , transparent);
-    --gDM-offline: linear-gradient(to right, rgb(66, 66, 66) , transparent);
-    --gDM-dnd: linear-gradient(to right, rgb(130,70,70) , transparent);
-    --gDM-idle: linear-gradient(to right, rgb(135, 105, 75) , transparent);
-    --gDM-streaming: linear-gradient(to right, rgb(63, 33, 88) , transparent);
-    --gDM-border-radius: 12px;
-}
-
-ul > li > [class*="interactive_"] {
-    border-radius: var(--gDM-border-radius);
-    margin: 0.3px;
-}
-
-[class^="link_"]:has([mask*="online"], [fill="#23a55a"]) {
-    background: var(--gDM-online);
-}
-[class^="link_"]:has([mask*="offline"], [fill="#80848e"]) {
-    background: var(--gDM-offline);
-}
-[class^="link_"]:has([mask*="dnd"], [fill="#f23f43"]) {
-    background: var(--gDM-dnd);
-}
-[class^="link_"]:has([mask*="idle"], [fill="#f0b232"]) {
-    background: var(--gDM-idle);
-}
-[class^="link_"]:has([mask*="streaming"], [fill="#3f2158"]) {
-    background: var(--gDM-streaming);
-}
-
-    :root {
-    --gDM-online: linear-gradient(to right, rgb(68, 105, 68) , transparent);
-    --gDM-offline: linear-gradient(to right, rgb(66, 66, 66) , transparent);
-    --gDM-dnd: linear-gradient(to right, rgb(130,70,70) , transparent);
-    --gDM-idle: linear-gradient(to right, rgb(135, 105, 75) , transparent);
-    --gDM-streaming: linear-gradient(to right, rgb(63, 33, 88) , transparent);
-    --gDM-border-radius: 12px;
-}
-
-div > [class*="layout_"] {
-    border-radius: var(--gDM-border-radius);
-    margin: 0.3px;
-}
-
-[class^="memberInner"]:has([mask*="online"], [fill="#23a55a"]) {
-    background: var(--gDM-online);
-}
-[class^="memberInner"]:has([mask*="offline"], [fill="#f0b232"]) {
-    background: var(--gDM-offline);
-}
-[class^="memberInner"]:has([mask*="dnd"], [fill="#f23f43"]) {
-    background: var(--gDM-dnd);
-}
-[class^="memberInner"]:has([mask*="idle"], [fill="#f0b232"]) {
-    background: var(--gDM-idle);
-}
-[class^="memberInner"]:has([mask*="streaming"], [fill="#3f2158"]) {
-    background: var(--gDM-streaming);
-}
-
+    css: `@import url('https://ukriu.github.io/cssCord/Other/gradientDM.css');
+    @import url('https://ukriu.github.io/cssCord/Other/gradientML.css');
     :root {
       --gDM-online: linear-gradient(to right, rgb(68, 105, 68) , transparent);
       --gDM-offline: linear-gradient(to right, rgb(66, 66, 66) , transparent);
@@ -186,7 +53,7 @@ div > [class*="layout_"] {
     label: 'Account Details Grid',
     description: 'Reorganizes the account details panel into a grid layout',
     section: 'interface',
-    css: ``,
+    css: `@import url("https://dablulite.github.io/css-snippets/AccountDetailsGrid/import.css");`,
     helpText: "This reorganizes the account details panel into a grid layout"
   }),
 
@@ -240,28 +107,7 @@ div > [class*="layout_"] {
     label: 'Recolor Add Friends Tab',
     description: "This Snippet fixes the 'Add Friend' so it match's the other tabs",
     section: 'interface',
-    css: `/**
-* @name RecolorAddFriendsTab
-* @author krystalskullofficial
-* @version 2.0
-* @description Recolors the Add Friends Tab on discord *(because being able to add people isnt that important)*
-*/
-[data-tab-id=ADD_FRIEND]{
-    background-color: var(--background-color) !important;
-    color: var(--interactive-normal) !important;
-}
-[data-tab-id=ADD_FRIEND]:hover{
-    background-color: var(--background-modifier-hover) !important;
-    color: var(--interactive-hover) !important;
-}
-[data-tab-id=ADD_FRIEND][aria-selected=true]{
-    background-color: var(--background-modifier-selected) !important;
-    color: var(--interactive-active) !important;
-}
-[data-tab-id=ADD_FRIEND][aria-selected=true]:hover{
-    background-color: var(--background-modifier-hover) !important;
-    color: var(--interactive-active) !important;
-}`,
+    css: `@import url("https://raw.githubusercontent.com/KrstlSkll69/vc-snippets/main/OtherStuff/RecolorAddFriendsTab.css");`,
     helpText: "This changes the 'Add Friend' so it match's the other tabs"
   }),
 
@@ -327,5 +173,212 @@ div > [class*="layout_"] {
       }`,
     previewBefore: "https://arcane.kitties.cat/assets/essentials/leftfavbutton-before.png",
     previewAfter: "https://arcane.kitties.cat/assets/essentials/leftfavbutton-after.png"
+  }),
+
+  createTweak({
+    id: 'RevertGifFavoriteButton',
+    label: 'Revert GIF Favorite Button',
+    description: 'Reverts the GIF Favorite button having color.',
+    section: 'interface',
+    css: `[class*='gifFavoriteButton_'] {
+    background-color: transparent;
+}`,
+    helpText: "Reverts the GIF Favorite button having color."
+  }),
+
+    
+  createTweak({
+    id: 'HideProfileNitroAd',
+    label: 'Hide Profile Nitro Ad',
+    description: 'Hide Discord Nitro ad from your profile page',
+    section: 'interface',
+    css: `[data-list-item-id*="_get-premium"] {
+  display: none;
+}
+[class*="menuDivider_"]:has(+[data-list-item-id*="_get-premium"])
+ {
+  display: none;
+}`,
+    helpText: "This hides the Discord Nitro ad from your profile page (you might not have it, its an A/B test rn)"
+  }),
+
+  createTweak({
+    id: 'HideQuests',
+    label: 'Hide Quests',
+    description: 'Hides the Quest ad next to the profile button',
+    section: 'interface',
+    css: `section[class^="panels_"]>div[class^="mask_"] {
+    display: none;
+}`,
+    helpText: "This hides the Quest ad next to the profile button on the bottom, if you dont see ignore this tweak!"
+  }),
+
+  createTweak({
+    id: 'LeftGifPicker',
+    label: 'Left GIF Picker',
+    description: 'Moves the GIF picker to the left side',
+    section: 'interface',
+    css: `
+      .layerContainer_d5a653 > .layer_ec16dd {
+        left: 0 !important;
+        right: unset !important;
+        transform: translateX(0) !important;
+      }
+      .positionContainer_af5dbb {
+        left: 0 !important;
+        right: unset !important;
+      }
+      .drawerSizingWrapper_af5dbb {
+        right: unset !important;
+        left: 0 !important;
+      }
+      [class*="layerContainer-"] > [class*="layer-"] {
+        left: 0 !important;
+        right: unset !important;
+        transform: none !important;
+      }
+    `,
+    helpText: "This moves the GIF/emoji/sticker picker to the left side of the window"
+  }),
+
+  createTweak({
+    id: 'VisibleServerBanner',
+    label: 'Visible Server Banner',
+    description: 'Keeps server banner visible while scrolling through channels',
+    section: 'interface',
+    css: `/*     Visible Server Banner     */
+[class^="container_"]:not([class*="bannerVisible_"]) >
+[class^="animatedContainer_"] {
+  top: 3px;
+}
+[class*="animatedContainer_"] {
+  opacity: 1 !important;
+}
+[class*="headerContent_"] {
+  filter: drop-shadow(0 1px 1px var(--bg-backdrop));
+}
+/* AMOLEDCord fix */
+[class^="sidebar_"] header {
+  background-color: transparent !important;
+}`,
+    helpText: "This keeps the server banner visible while scrolling through channels"
+  }),
+
+  createTweak({
+    id: 'ColoredMessagePills',
+    label: 'Colored Message Pills',
+    description: 'Colors the message pills based on mentions and new posts',
+    section: 'interface',
+    css: `/*     Blue Pill      */
+[class^="iconVisibility_"]:has([style="color: var(--text-brand);"]) > [class^="unread_"] {
+  background-color: var(--text-brand);
+}
+/*     Red Pill      */
+[class^="iconVisibility_"]:has([class^="mentionsBadge_"]) > [class^="unread_"] {
+  background-color: var(--status-danger);
+}`,
+    helpText: "This colors the message pills based on mentions and new posts:\n• Blue pill for new posts\n• Red pill for mentions"
+  }),
+
+  createTweak({
+    id: 'SlideoverServers',
+    label: 'Slideover Servers',
+    description: 'Turns the server list into a grid that slides out on hover',
+    section: 'interface',
+    css: `@import url("https://raw.githubusercontent.com/Andrew6rant/Discord-plugins-and-themes/refs/heads/main/SlideoverServers.theme.css");`,
+    helpText: "This turns the server list into a 2 column grid that slides out on hover"
+  }),
+
+  createTweak({
+    id: 'CollapsibleChatButtons',
+    label: 'Collapsible Chat Buttons',
+    description: 'Collapses chat bar buttons to save space when writing long messages',
+    section: 'interface',
+    css: `      .buttons_ce5b56 {
+        margin: 6px 6px 6px auto !important;
+        margin-left: auto;
+        max-width: calc(40px * 7); /* 7 columns when expanded: emoji, gif, sticker, gift, upload, soundboard, apps */
+        min-width: calc(40px * 2); /* 2 columns when collapsed */
+        width: min-content;
+        display: flex;
+        gap: 6px 0;
+        flex-wrap: wrap-reverse;
+        flex-grow: 1;
+        height: fit-content;
+        justify-content: right;
+      }
+      .buttons_ce5b56 .buttonContainer__8b164,
+      .buttons_ce5b56 > .button_afdfd9 {
+        width: 40px;
+      }
+      .separator__8424b {
+        margin: 0;
+        justify-content: center;
+        width: 40px;
+      }
+      .separator__8424b::before {
+        display: none;
+      }
+      .separator__8424b .innerButton_debeee {
+        margin: 0;
+      }
+      .textArea__74543 {
+        width: fit-content;
+        flex-grow: 1.01;
+      }`,
+    helpText: "This collapses chat bar buttons to save space when writing long messages"
+  }),
+
+  createTweak({
+    id: 'ModernAudio',
+    label: 'Modern Audio',
+    description: 'Updates the appearance of audio attachments',
+    section: 'interface',
+    css: `[class^="mosaicItem"] > [class^="wrapperAudio"] > [class^="audioMetadata"] {
+        margin-bottom: 24px;
+      }
+      
+      [class^="mosaicItem"] > [class^="wrapperAudio"] > [class^="audioControls"] {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-radius: 0px 0px 8px 8px;
+      }`,
+    helpText: "This updates the appearance of audio attachments"
+  }),
+
+  createTweak({
+    id: 'RevealDarkUsernames',
+    label: 'Reveal Dark Usernames',
+    description: 'Makes dark usernames visible when hovering over them',
+    section: 'interface',
+    css: `      /* Handle dark usernames */
+      [style^="color: rgb(5, 0, 5);"] {
+        [class*=username_]& {
+          [id^=chat-messages]:hover &, /* chat messages */
+          [class^=member_]:hover &, /* members list */
+          [class^=membersGroup_]:hover & /* members list headers */ {
+            color: var(--text-normal) !important;
+          }
+        }
+        
+        .mention&:hover /* mentions */,
+        [class^=channelTextArea_] [class^=wrapper_]&:hover /* mentions in chat bar */ {
+          color: var(--text-normal) !important;
+          background-color: color-mix(in srgb, var(--text-normal) 20%, transparent) !important;
+        }
+      }`,
+    helpText: "This makes dark usernames visible when hovering over them"
+  }),
+
+  createTweak({
+    id: 'FixMosaicZoom',
+    label: 'Fix Mosaic Zoom',
+    description: 'Prevents image previews from being zoomed in',
+    section: 'interface',
+    css: `[class^="imageWrapper_"] img[class^="lazyImg"] {
+        object-fit: contain !important;
+      }`,
+    helpText: "This prevents image previews from being zoomed in"
   }),
 ]; 

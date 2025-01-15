@@ -47,33 +47,10 @@ function SettingsToggle({
             {description}
           </p>
         </div>
-        <div
-          className="container_c669ee"
-          onClick={handleToggle}
-          style={{ cursor: "pointer" }}
-        >
-          <div className={`slider_c669ee${value ? " checked_c669ee" : ""}`}>
-            <div className="handle_c669ee">
-              <svg
-                className="icon_c669ee"
-                aria-hidden="true"
-                role="img"
-                width="10"
-                height="10"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="currentColor"
-                  d={
-                    value
-                      ? "M8.99991 16.17L4.82991 12L3.40991 13.41L8.99991 19L20.9999 7.00003L19.5899 5.59003L8.99991 16.17Z"
-                      : "M5.13231 6.72963L6.7233 5.13864L14.855 13.2704L13.264 14.8614L5.13231 6.72963Z M13.2704 5.13864L14.8614 6.72963L6.72963 14.8614L5.13864 13.2704L13.2704 5.13864Z"
-                  }
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
+        <Nekocord.webpackModules.commonModules.Switch
+          checked={value}
+          onChange={handleToggle}
+        />
       </div>
 
       <div

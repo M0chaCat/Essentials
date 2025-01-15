@@ -7,6 +7,7 @@ exports.default = void 0;
 const QuickCSSTab = require("./QuickCSSTab");
 const M0chaTweaksTab = require("./components/M0chaTweaksTab");
 const { ThemeImportTab, applyThemeUrls } = require("./ThemeImportTab");
+const NekoSkinsTab = require("./components/NekoSkinsTab");
 const tweaks = require("./tweaks");
 
 /*
@@ -62,7 +63,7 @@ class Essentials {
       },
     ],
     description: "Minor tweaks that make discord better!",
-    version: "2.5.1",
+    version: "2.5.3",
     patches: [],
     preferences: [],
   };
@@ -156,7 +157,7 @@ class Essentials {
     {
       header: "Essentials",
       divider: true,
-      settings: ["mochatweaks", "quickcss", "themeimport"],
+      settings: ["mochatweaks", "quickcss", "themeimport", "onekoskins"],
     },
   ];
   settingsTabs = {
@@ -174,9 +175,15 @@ class Essentials {
     },
     themeimport: {
       section: "Theme Import",
-      searchableTitles: ["Essentials", "CSS", "Theme Import", "BetterDiscord"],
+      searchableTitles: ["Essentials", "CSS", "Theme Import"],
       label: "Theme Import",
       element: ThemeImportTab,
+    },
+    onekoskins: {
+      section: "Neko Skins",
+      searchableTitles: ["Essentials", "Neko", "Skins", "Cat"],
+      label: "Neko Skins",
+      element: NekoSkinsTab,
     },
   };
 

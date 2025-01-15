@@ -17,8 +17,10 @@ if (!fs.existsSync(buildDir)) {
   fs.mkdirSync(buildDir, { recursive: true });
 }
 
-// Check if -c flag is present and we're on macOS
+// Check for flags
 const shouldCopy = process.argv.includes("-c") && process.platform === "darwin";
+const shouldBundleCss = process.argv.includes("-b");
+
 const pluginsPath = shouldCopy
   ? path.join(
       os.homedir(),
@@ -33,7 +35,7 @@ const pluginsPath = shouldCopy
 async function build() {
   console.log("Building plugin...");
   
-  await esbuild.build({
+  const buildConfig = {
     entryPoints: [srcPath],
     bundle: true,
     outfile: outPath,
@@ -41,42 +43,41 @@ async function build() {
     platform: "node",
     target: "es2020",
     external: ["react"],
-    plugins: [{
+  };
+
+  // Only add CSS processing plugin if -b flag is present
+  if (shouldBundleCss) {
+    console.log("Processing CSS imports...");
+    buildConfig.plugins = [{
       name: 'css-import-processor',
       setup(build) {
         build.onLoad({ filter: /\.(js|jsx)$/ }, async (args) => {
           let contents = await fs.promises.readFile(args.path, 'utf8');
           
-          // Find CSS template literals with @import statements
           const cssRegex = /css:\s*`([^`]+)`/g;
           let match;
           let lastIndex = 0;
           let result = '';
           
           while ((match = cssRegex.exec(contents)) !== null) {
-            // Add everything up to this match
             result += contents.slice(lastIndex, match.index);
             
             const css = match[1];
             if (css.includes('@import')) {
-              // Process imports
               const processedCss = await processCss(css);
-              // Escape any problematic characters in the CSS
               const escapedCss = processedCss
-                .replace(/\\/g, '\\\\') // Escape backslashes
-                .replace(/`/g, '\\`')   // Escape backticks
-                .replace(/\$/g, '\\$'); // Escape dollar signs
+                .replace(/\\/g, '\\\\')
+                .replace(/`/g, '\\`')
+                .replace(/\$/g, '\\$');
               
               result += `css:\`${escapedCss}\``;
             } else {
-              // Keep original CSS if no imports
               result += match[0];
             }
             
             lastIndex = match.index + match[0].length;
           }
           
-          // Add any remaining content
           result += contents.slice(lastIndex);
           
           return { 
@@ -85,8 +86,10 @@ async function build() {
           };
         });
       }
-    }]
-  });
+    }];
+  }
+
+  await esbuild.build(buildConfig);
 
   if (shouldCopy && pluginsPath) {
     fs.copyFileSync(outPath, pluginsPath);

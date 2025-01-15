@@ -1,16 +1,11 @@
 const React = require("react");
-const SearchBar = require('../SearchBar');
 const SettingsToggle = require('../SettingsToggle');
-const SectionHeader = require('../SectionHeader');
 const PreviewModal = require('../PreviewModal');
-const CoreUISection = require('./CoreUISection');
-const InterfaceSection = require('./InterfaceSection');
-const ChatSection = require('./ChatSection');
-const VisualSection = require('./VisualSection');
-const FunSection = require('./FunSection');
+const OnekoSection = require('./OnekoSection');
+const SectionHeader = require('../SectionHeader');
 const tweaks = require('../tweaks');
 
-function M0chaTweaksTab() {
+function NekoSkinsTab() {
   const [settings, setSettings] = React.useState({});
   const [searchTerm, setSearchTerm] = React.useState("");
   const [showStats, setShowStats] = React.useState(false);
@@ -28,11 +23,6 @@ function M0chaTweaksTab() {
       ).length;
 
     return {
-      coreUI: countBySection('coreUI'),
-      interface: countBySection('interface'),
-      chat: countBySection('chat'),
-      visual: countBySection('visual'),
-      fun: countBySection('fun'),
       oneko: countBySection('oneko'),
       get total() {
         return this.coreUI + this.interface + this.chat + 
@@ -94,15 +84,30 @@ function M0chaTweaksTab() {
   };
 
   return (
-    <div>
+    <div className="neko-settings-tab">  {/* Add this className */}
       <h1 className="defaultColor_a595eb text-md/normal_dc00ef">
-      <SectionHeader title="M0chaTweaks Settings" />
+      <SectionHeader title="NekoSkins" />
       </h1>
-      
       {/* Header section with search and controls */}
       <div className="defaultColor_a595eb text-md/normal_dc00ef mb-8">
-        <SearchBar onSearch={setSearchTerm} />
         
+        <div id="oneko-preview" style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        height: '128px',  // Same as image height
+        margin: '20px 0'  // Add some vertical spacing
+      }}>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+             alt="" 
+             style={{ 
+               width: '256px', 
+               height: '128px',
+               objectFit: 'contain'
+             }}
+        />
+      </div>
+
         {/* View controls container */}
         <div className="view-controls mt-4" style={{ display: "flex", gap: "16px" }}>
           <SettingsToggle
@@ -111,70 +116,12 @@ function M0chaTweaksTab() {
             value={settings.GridView}
             onChange={() => handleToggle("GridView")}
           />
-          <SettingsToggle
-            label="Show Statistics"
-            description="Toggle statistics visibility"
-            value={showStats}
-            onChange={() => setShowStats(!showStats)}
-          />
+      
         </div>
-
-        {/* Statistics section */}
-        {showStats && (
-          <div
-            className="stats-container mt-4 mb-4"
-            style={{
-              backgroundColor: "var(--background-secondary)",
-              padding: "16px",
-              borderRadius: "8px",
-              border: "1px solid var(--background-modifier-accent)",
-            }}
-          >
-            <h3 style={{ marginBottom: "8px" }}>Enabled Settings</h3>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                gap: "8px",
-              }}
-            >
-              <div>Total: {enabledCounts.total}</div>
-              <div>Core UI: {enabledCounts.coreUI}</div>
-              <div>Interface: {enabledCounts.interface}</div>
-              <div>Chat: {enabledCounts.chat}</div>
-              <div>Visual: {enabledCounts.visual}</div>
-              <div>Fun: {enabledCounts.fun}</div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Section components */}
-      <CoreUISection 
-        settings={settings}
-        filterSettings={filterSettings}
-        handleToggle={handleToggle}
-        handlePreviewClick={handlePreviewClick}
-      />
-      <InterfaceSection 
-        settings={settings}
-        filterSettings={filterSettings}
-        handleToggle={handleToggle}
-        handlePreviewClick={handlePreviewClick}
-      />
-      <ChatSection 
-        settings={settings}
-        filterSettings={filterSettings}
-        handleToggle={handleToggle}
-        handlePreviewClick={handlePreviewClick}
-      />
-      <VisualSection 
-        settings={settings}
-        filterSettings={filterSettings}
-        handleToggle={handleToggle}
-        handlePreviewClick={handlePreviewClick}
-      />
-      <FunSection 
+      <OnekoSection 
         settings={settings}
         filterSettings={filterSettings}
         handleToggle={handleToggle}
@@ -321,4 +268,4 @@ function M0chaTweaksTab() {
   );
 }
 
-module.exports = M0chaTweaksTab; 
+module.exports = NekoSkinsTab; 
