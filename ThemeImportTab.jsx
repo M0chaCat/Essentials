@@ -60,7 +60,7 @@ function ThemeImportTab() {
   };
 
   return (
-    <div className="theme-import-container" style={{ padding: "16px" }}>
+    <div className="theme-import-container">
       <SectionHeader title="Theme Import" />
 
       <div className="header-container" style={{ marginBottom: "24px" }}>

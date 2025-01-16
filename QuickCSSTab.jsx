@@ -62,10 +62,10 @@ function QuickCSSTab() {
   };
 
   return (
-    <div className="quickcss-container" style={{ padding: "16px" }}>
+    <div className="quickcss-container" style={{ padding: "0", margin: "0" }}>
       <SectionHeader title="QuickCSS" />
 
-      <div className="header-container" style={{ marginBottom: "24px" }}>
+      <div className="header-container" style={{ marginBottom: "16px" }}>
         <div
           className="defaultColor_a595eb text-md/normal_dc00ef"
           style={{ opacity: 0.8, lineHeight: "1.5" }}
@@ -158,9 +158,10 @@ function QuickCSSTab() {
             backgroundColor: "var(--background-secondary)",
             color: "var(--text-normal)",
             padding: "16px",
+            border: "1px solid var(--background-modifier-accent)",
+            borderRadius: "4px",
             fontFamily: "var(--font-code), monospace",
             resize: "vertical",
-            border: "none",
             outline: "none",
             fontSize: "14px",
             lineHeight: "1.5",

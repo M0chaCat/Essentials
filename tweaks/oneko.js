@@ -28,6 +28,14 @@ module.exports = [
   }),
 
   createTweak({
+    id: 'TransOneko',
+    label: 'Trans Oneko',
+    description: 'Replaces the Oneko cat with a Trans cat!!',
+    section: 'oneko',
+    css: `div[id*=oneko] {background-image: url(https://raw.githubusercontent.com/Lylythii/OnekoStyles/refs/heads/main/pride/trans.png?raw=true) !important;}`
+  }),
+
+  createTweak({
     id: 'GhostOneko',
     label: 'Ghost Oneko',
     description: 'Replaces the Oneko cat with a Ghost cat',
