@@ -40,7 +40,7 @@ Nekocord.webpackPatcher.onInitializationFinish(() => {
         const decryptedPoints = savedPoints ? decrypt(savedPoints, currentUser.id) : null; // Decrypt points
         points = (typeof decryptedPoints === 'string' && !isNaN(parseInt(decryptedPoints))) 
           ? parseInt(decryptedPoints) 
-          : -9999999999; // Set to -9999999999 if decryption fails or is invalid
+          : 0; // TODO: Set to -9999999999 if decryption fails or is invalid
         
         // Define an array of keywords that grant 2 points with regex for repeated letters
         const meowKeywords = [
