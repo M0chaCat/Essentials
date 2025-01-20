@@ -9,6 +9,7 @@ const ChatSection = require('./ChatSection');
 const VisualSection = require('./VisualSection');
 const FunSection = require('./FunSection');
 const tweaks = require('../tweaks');
+const { applyThemeUrls } = require('../ThemeImportTab');
 
 function M0chaTweaksTab() {
   const [settings, setSettings] = React.useState({});
@@ -68,6 +69,15 @@ function M0chaTweaksTab() {
 
       // Trigger the settings changed event for CSS refresh
       window.dispatchEvent(new CustomEvent("essentials-settings-changed"));
+
+      // Reapply theme URLs after toggling settings
+      const ThemeImportURLS = NekocordNative.preferences.getForPlugin(
+        "cat.kitties.arcane.Essentials",
+        "themeimport",
+      );
+      if (ThemeImportURLS) {
+        applyThemeUrls(ThemeImportURLS);
+      }
 
       return newSettings;
     });

@@ -1,10 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-  value: true,
-});
-exports.default = void 0;
 
 const QuickCSSTab = require("./QuickCSSTab");
+const SocialCreditsTab = require("./SocialCreditsTab");
 const M0chaTweaksTab = require("./components/M0chaTweaksTab");
 const { ThemeImportTab, applyThemeUrls } = require("./ThemeImportTab");
 const NekoSkinsTab = require("./components/NekoSkinsTab");
@@ -63,7 +59,7 @@ class Essentials {
       },
     ],
     description: "Minor tweaks that make discord better!",
-    version: "2.5.4",
+    version: "2.6.0",
     patches: [],
     preferences: [],
   };
@@ -157,7 +153,7 @@ class Essentials {
     {
       header: "Essentials",
       divider: true,
-      settings: ["mochatweaks", "quickcss", "themeimport", "onekoskins"],
+      settings: ["mochatweaks", "quickcss", "themeimport", "onekoskins", "socialcredits"],
     },
   ];
   settingsTabs = {
@@ -184,6 +180,12 @@ class Essentials {
       searchableTitles: ["Essentials", "Neko", "Skins", "Cat"],
       label: "Neko Skins",
       element: NekoSkinsTab,
+    },
+    socialcredits: {
+      section: "Social Credits",
+      searchableTitles: ["credits", "points", "social", "score"],
+      label: "Social Credits",
+      element: SocialCreditsTab,
     },
   };
 
